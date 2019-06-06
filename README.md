@@ -1,2 +1,2 @@
-# Directory-application
+# directory-application
 Android Project
