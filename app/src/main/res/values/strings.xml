@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Demo App</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_done">DONE</string>
+    <string name="btn_send">SEND</string>
+
+    <string name="link_signup">Raise a request for access</string>
+    <string name="link_forget_password">Forgot Your Password?</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_mobile_number">Mobile number</string>
+    <string name="hint_new_password">New Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="text_developed_by">Developed by Hardik Bohra</string>
+    <string name="forget_password_bottom_22">Make sure you have given mobile number registered with us</string>
+    <string name="forget_password_bottom_21"><![CDATA[Term & Conditions (Contact for query : 88888-77777)]]></string>
+    <string name="forget_password_bottom_11">You will receive a reset password related instruction on entered mobile number</string>
+    <string name="reset_password_bottom_11">Now onwards, use your new password</string>
+    <string name="reset_password_bottom_22">Don’t share these password details with anyone</string>
+
+    <string name="settings_menu">Settings</string>
+    <string name="aboutus_menu">About Us</string>
+    <string name="help_menu">Help</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="search_by_name">Search by name</string>
+</resources>

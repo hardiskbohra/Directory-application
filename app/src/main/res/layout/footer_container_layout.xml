@@ -1,0 +1,18 @@
+<RelativeLayout android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:padding="5dp"
+        android:fontFamily="@font/noto_sans"
+        android:textSize="12sp"
+        android:text="Developed by Hardik Bohra"
+        android:textColor="#666666" />
+
+</RelativeLayout>
