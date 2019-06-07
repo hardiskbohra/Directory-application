@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <activity
-            android:name="com.example.directory.ListViewActivity"
+            android:name="com.example.directory.activities.ListViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustResize">
@@ -23,16 +23,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.directory.DisplayMessageActivity"
-            android:parentActivityName="com.example.directory.LoginActivity">
+        <activity android:name="com.example.directory.activities.DisplayMessageActivity"
+            android:parentActivityName="com.example.directory.activities.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.directory.LoginActivity" />
+                android:value="com.example.directory.activities.LoginActivity" />
         </activity>
 
-        <activity android:name="com.example.directory.ChangePasswordActivity" />
-        <activity android:name="com.example.directory.ForgotPasswordActivity" />
-        <activity android:name="com.example.directory.LoginActivity" />
+        <activity android:name="com.example.directory.activities.ChangePasswordActivity" />
+        <activity android:name="com.example.directory.activities.ForgotPasswordActivity" />
+        <activity android:name="com.example.directory.activities.LoginActivity" />
     </application>
 
 </manifest>

@@ -24,6 +24,10 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.action_profile:
+                // about us
+                ViewUtils.showToastShort(BaseActivity.this, "My Profile");
+                break;
             case R.id.action_aboutus:
                 // about us
                 ViewUtils.showToastShort(BaseActivity.this, "About us");

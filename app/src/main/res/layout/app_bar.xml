@@ -8,18 +8,28 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingRight="15dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/toolbar_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Directory"
+            android:text="@string/app_name"
+            android:paddingRight="20dp"
             android:fontFamily="@font/noto_sans_bold"
-            android:gravity="center"
             android:textAppearance="@android:style/TextAppearance.Material.Title"
             android:textColor="@color/colorPrimary"
             />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_notifications" />
 
     </RelativeLayout>
 

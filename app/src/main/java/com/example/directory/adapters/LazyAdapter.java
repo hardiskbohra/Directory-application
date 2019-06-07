@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.directory.ListViewActivity;
+import com.example.directory.activities.ListViewActivity;
 import com.example.directory.R;
 
 import java.util.ArrayList;
@@ -38,8 +38,7 @@ public class LazyAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-
-
+    
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)

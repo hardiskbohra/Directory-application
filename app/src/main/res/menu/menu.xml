@@ -3,16 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_aboutus"
+        android:id="@+id/action_profile"
         app:showAsAction="never"
-        android:title="@string/aboutus_menu"
-        android:icon="@drawable/ic_search" />
+        android:title="@string/profile_menu"
+        android:icon="@drawable/ic_notifications" />
 
     <item
         android:id="@+id/action_settings"
         app:showAsAction="never"
         android:title="@string/settings_menu"
         android:icon="@drawable/ic_valid_mark" />
+
+    <item
+        android:id="@+id/action_aboutus"
+        app:showAsAction="never"
+        android:title="@string/aboutus_menu"
+        android:icon="@drawable/ic_search" />
 
     <item
         android:id="@+id/action_help"
