@@ -1,18 +1,20 @@
 <resources>
-    <string name="app_name">Demo App</string>
+    <string name="app_name">Directory</string>
     <string name="btn_login">LOGIN</string>
     <string name="btn_done">DONE</string>
     <string name="btn_send">SEND</string>
 
     <string name="link_signup">Raise a request for access</string>
     <string name="link_forget_password">Forgot Your Password?</string>
+
     <string name="hint_password">Password</string>
     <string name="hint_mobile_number">Mobile number</string>
     <string name="hint_new_password">New Password</string>
     <string name="hint_confirm_password">Confirm Password</string>
+
     <string name="text_developed_by">Developed by Hardik Bohra</string>
     <string name="forget_password_bottom_22">Make sure you have given mobile number registered with us</string>
-    <string name="forget_password_bottom_21"><![CDATA[Term & Conditions (Contact for query : 88888-77777)]]></string>
+    <string name="forget_password_bottom_21"><![CDATA[Term Conditions and Privacy Policy]]></string>
     <string name="forget_password_bottom_11">You will receive a reset password related instruction on entered mobile number</string>
     <string name="reset_password_bottom_11">Now onwards, use your new password</string>
     <string name="reset_password_bottom_22">Don’t share these password details with anyone</string>
@@ -21,8 +23,23 @@
     <string name="aboutus_menu">About Us</string>
     <string name="help_menu">Help</string>
 
+    <string name="bottom_action_recent">Recent</string>
+    <string name="bottom_action_home">Home</string>
+    <string name="bottom_action_account">My Account</string>
+
+    <string name="account_action_profile">Profile</string>
+    <string name="account_action_family_tree">Family Tree</string>
+    <string name="account_action_setting">Settings</string>
+    <string name="account_action_logout">Logout</string>
+
+    <string name="profile_item_home">Home</string>
+    <string name="profile_item_occupation">Occupation</string>
+    <string name="profile_item_office">Office</string>
+    <string name="profile_item_contact_number">Contact Number</string>
+    <string name="profile_item_email">Email</string>
+
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="search_by_name">Search by name</string>
-    <string name="profile_menu">My Profile</string>
+    <string name="reset_your_password">Reset Your Password</string>
 </resources>

@@ -24,10 +24,10 @@
     </style>
 
 
-    <!-- Splash Screen -->
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/directory_splash_screen</item>
-    </style>
+    <!--&lt;!&ndash; Splash Screen &ndash;&gt;-->
+    <!--<style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--<item name="android:windowBackground">@drawable/directory_splash_screen</item>-->
+    <!--</style>-->
 
 
     <!-- Edit Text Style -->

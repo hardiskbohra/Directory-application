@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.directory.MainActivity;
 import com.example.directory.R;
 import com.example.directory.constants.Constants;
 import com.example.directory.utils.ValidationUtils;
@@ -60,7 +61,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkChangePasswordDetails()) {
                     ViewUtils.showToastShort(ChangePasswordActivity.this, "Password changed successfully");
-                    Intent intent = new Intent(ChangePasswordActivity.this, ListViewActivity.class);
+                    Intent intent = new Intent(ChangePasswordActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
             }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0E4EC7</color>
+    <color name="colorPrimary">#0000EE</color>
     <color name="colorPrimaryDark">#0000FF</color>
     <color name="colorAccent">#1F0F4EC7</color>
+    <color name="colorBackground">#fff</color>
 
     <color name="btn_green_pressed">#0C5F2C</color>
     <color name="btn_green_normal">#00963F</color>
@@ -15,8 +16,10 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000</color>
     <color name="red">#FF0000</color>
+    <color name="dark_red">#CC3717</color>
     <color name="charcoal_grey">#36454f</color>
     <color name="grey">#808080</color>
     <color name="light_grey">#EEEEEE</color>
+    <color name="semi_grey">#BBBBBB</color>
     <color name="red_transparent">#FF0000</color>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="activity_vertical_margin">10dp</dimen>
     <dimen name="activity_horizontal_margin">12dp</dimen>
     <dimen name="btn_width">125dp</dimen>
@@ -7,10 +7,12 @@
 
     <!-- Text Sizes-->
     <dimen name="text_size_extra_large">20sp</dimen>
+    <dimen name="text_size_super_large">25sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
     <dimen name="text_size_semi_large">16sp</dimen>
-    <dimen name="text_size_normal">12sp</dimen>
-    <dimen name="text_size_normal_plus">14sp</dimen>
+    <dimen name="text_size_normal" tools:ignore="MissingDefaultResource">12sp</dimen>
+    <dimen name="text_size_normal_semi" tools:ignore="MissingDefaultResource">13sp</dimen>
+    <dimen name="text_size_normal_extra">14sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
     <dimen name="text_size_extra_small">8sp</dimen>
 
@@ -20,9 +22,27 @@
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_extra_small">4dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_semi_large">20dp</dimen>
     <dimen name="spacing_slightly_large">32dp</dimen>
     <dimen name="spacing_extra_large">64dp</dimen>
     <dimen name="spacing_moderate">12dp</dimen>
+
+    <!-- Margin -->
+    <dimen name="margin_slightly_small">6dp</dimen>
+    <dimen name="margin_from_app_bar">58dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_extra_small">4dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_slightly_large">32dp</dimen>
+    <dimen name="margin_extra_large">64dp</dimen>
+    <dimen name="margin_moderate">12dp</dimen>
+
+    <!--Width-->
+    <dimen name="size_zero">0dp</dimen>
+    <dimen name="size_slightly_large">50dp</dimen>
+    <dimen name="size_extra_large">120dp</dimen>
 
     <!-- Icon Sizes -->
     <dimen name="icon_size_tiny">8dp</dimen>
@@ -34,4 +54,5 @@
     <dimen name="dialog_elevation">4dp</dimen>
     <dimen name="card_elevation_large">8dp</dimen>
     <dimen name="divider_thin">1dp</dimen>
+    <dimen name="no_divider">0dp</dimen>
 </resources>

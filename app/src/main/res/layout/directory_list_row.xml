@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="@dimen/spacing_extra_small" >
+
+    <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:layout_marginStart="@dimen/margin_moderate"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_alignParentLeft="true"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/list_image"
+            android:layout_width="@dimen/size_slightly_large"
+            android:layout_height="@dimen/size_slightly_large"
+            android:src="@drawable/ic_default_male_user"
+            app:civ_border_width="@dimen/divider_thin"
+            app:civ_border_color="#1FAAAAAA"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Mr. Tonny Stark"
+        android:layout_marginTop="@dimen/margin_extra_small"
+        android:textColor="#040404"
+        android:fontFamily="@font/noto_sans"
+        android:textSize="@dimen/text_size_normal_extra"/>
+
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:textColor="#343434"
+        android:textSize="@dimen/text_size_small"
+        android:fontFamily="@font/noto_sans"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Bangalore (Rajasthan)" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/duration"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignTop="@id/name"-->
+        <!--android:gravity="right"-->
+        <!--android:fontFamily="@font/noto_sans"-->
+        <!--android:text="5:45"-->
+        <!--android:layout_marginRight="5dp"-->
+        <!--android:textSize="10sp"-->
+        <!--android:textColor="#10bcc9"-->
+        <!--android:textStyle="bold"/>-->
+
+    <!-- Rightend Arrow -->
+    <!--<ImageView android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_valid_mark"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"/>-->
+
+</RelativeLayout>
