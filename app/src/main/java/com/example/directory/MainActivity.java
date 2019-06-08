@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +19,8 @@ public class MainActivity extends BaseActivity {
 
     private Toolbar toolbar;
     private TextView toolbarTitle;
+
+    int check = 0;
 
     final private Fragment homeFragment = new HomeFragment();
     final private Fragment accountFragment = new AccountFragment();
@@ -38,10 +39,12 @@ public class MainActivity extends BaseActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.bottom_action_home:
+                    check = 1;
                     fragment = homeFragment;
                     toolbarTitle.setText("Directory List");
                     break;
                 case R.id.bottom_action_account:
+                    check = 2;
                     fragment = accountFragment;
                     toolbarTitle.setText("My Account");
                     break;
@@ -87,12 +90,5 @@ public class MainActivity extends BaseActivity {
 
         // to show navigation bar icon on tool bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    private void openFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 }

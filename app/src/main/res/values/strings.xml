@@ -42,4 +42,9 @@
     <string name="close">Close</string>
     <string name="search_by_name">Search by name</string>
     <string name="reset_your_password">Reset Your Password</string>
+
+    <string name="logout_confirmation_message">Are you sure?</string>
+    <string name="logout_confirmation_title">Logout</string>
+    <string name="btn_logout">Logout</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>

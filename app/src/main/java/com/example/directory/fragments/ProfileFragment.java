@@ -38,28 +38,28 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                switch ((int)id) {
+                String data = "";
+
+                switch (position) {
                     case 0:
-                        actions.get(0).put(KEY_ACTION_NAME, "#59/1, 2nd floor, 13th main, \n Virat nagar road, \n Bommanhalli, Bangalore - 560068");
-                        setValueForOtherActions(actions, 1);
+                        data = "#59/1, 2nd floor, 13th main, \n Virat nagar road, \n Bommanhalli, Bangalore - 560068";
                         break;
                     case 1:
-                        actions.get(1).put(KEY_ACTION_NAME, "Updated Address");
-                        setValueForOtherActions(actions, 2);
+                        data = "Software Engineer";
                         break;
                     case 2:
-                        actions.get(2).put(KEY_ACTION_NAME, "Updated Address");
-                        setValueForOtherActions(actions, 3);
+                        data = "#59/1, 2nd floor, 13th main, \n Virat nagar road, \n Bommanhalli, Bangalore - 560068";
                         break;
                     case 3:
-                        actions.get(3).put(KEY_ACTION_NAME, "Updated Address");
-                        setValueForOtherActions(actions, 4);
+                        data = "+91 - 8306794666 \n+91 - 9429522222";
                         break;
                     case 4:
-                        actions.get(4).put(KEY_ACTION_NAME, "Updated Address");
-                        setValueForOtherActions(actions, 5);
-                        break;
+                        data = "hardik.bohra@gmail.com";
+                      break;
                 }
+                actions.get(position).put(KEY_ACTION_NAME, data);
+                setValueForOtherActions(actions, position + 1);
+                actionList.smoothScrollToPosition(position + 1);
                 adapter = new AccountActionListAdapter(ProfileFragment.this, actions);
                 actionList.setAdapter(adapter);
             }
@@ -68,6 +68,8 @@ public class ProfileFragment extends Fragment {
         adapter = new AccountActionListAdapter(this, actions);
         actionList.setAdapter(adapter);
     }
+
+
 
     private void setValueForOtherActions(ArrayList<HashMap<String, Object>> actions, int position) {
 

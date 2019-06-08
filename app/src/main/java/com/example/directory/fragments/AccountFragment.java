@@ -1,16 +1,19 @@
 package com.example.directory.fragments;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.directory.R;
 import com.example.directory.adapters.AccountActionListAdapter;
+import com.example.directory.fragments.dialog.LogoutConfirmationDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,10 +24,12 @@ public class AccountFragment extends Fragment {
     public static final String KEY_ACTION_NAME = "action_name";
     public static final String KEY_ACTION_IMAGE = "action_image";
 
+    private LinearLayout ll = null;
     private ListView actionList;
     private AccountActionListAdapter adapter;
 
     private Fragment profileFragment;
+    private DialogFragment logoutFragment;
     private FragmentManager fragmentManager;
 
     @Override
@@ -37,6 +42,7 @@ public class AccountFragment extends Fragment {
 
         ArrayList<HashMap<String, Object>> actions = createActionList();
 
+        ll = view.findViewById(R.id.account_fragment_ll);
         actionList = view.findViewById(R.id.action_list);
 
         fragmentManager = getFragmentManager();
@@ -55,6 +61,8 @@ public class AccountFragment extends Fragment {
                     case 2:
                         break;
                     case 3:
+                        logoutFragment = new LogoutConfirmationDialog();
+                        logoutFragment.show(fragmentManager, "");
                         break;
                 }
             }
