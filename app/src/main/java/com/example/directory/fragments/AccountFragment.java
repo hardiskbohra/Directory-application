@@ -29,6 +29,7 @@ public class AccountFragment extends Fragment {
     private AccountActionListAdapter adapter;
 
     private Fragment profileFragment;
+    private Fragment profileRecyclerFragment;
     private DialogFragment logoutFragment;
     private FragmentManager fragmentManager;
 
@@ -59,6 +60,8 @@ public class AccountFragment extends Fragment {
                     case 1:
                         break;
                     case 2:
+                        profileRecyclerFragment = new ProfileRecyclerViewFragment();
+                        fragmentManager.beginTransaction().replace(R.id.container, profileRecyclerFragment).commit();
                         break;
                     case 3:
                         logoutFragment = new LogoutConfirmationDialog();
