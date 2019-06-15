@@ -17,7 +17,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/list_image"
+            android:id="@+id/contact_image"
             android:layout_width="@dimen/size_slightly_large"
             android:layout_height="@dimen/size_slightly_large"
             android:src="@drawable/ic_default_male_user"
@@ -27,7 +27,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/contact_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
@@ -39,10 +39,10 @@
         android:textSize="@dimen/text_size_normal_extra"/>
 
     <TextView
-        android:id="@+id/city"
+        android:id="@+id/contact_city"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
+        android:layout_below="@id/contact_name"
         android:textColor="#343434"
         android:textSize="@dimen/text_size_small"
         android:fontFamily="@font/noto_sans"

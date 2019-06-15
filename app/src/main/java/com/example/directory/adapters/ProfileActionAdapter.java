@@ -9,15 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.directory.R;
-import com.example.directory.models.ProfileActionModel;
 
 import java.util.List;
+import java.util.Map;
 
 public class ProfileActionAdapter extends RecyclerView.Adapter<ProfileActionAdapter.ViewHolder> {
 
-    List<ProfileActionModel> actionModelList;
+    List<Map<String, Object>> actionModelList;
 
-    public ProfileActionAdapter(List<ProfileActionModel> actionModelList) {
+    public ProfileActionAdapter(List<Map<String, Object>> actionModelList) {
         this.actionModelList = actionModelList;
     }
 
@@ -25,16 +25,16 @@ public class ProfileActionAdapter extends RecyclerView.Adapter<ProfileActionAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_layout_profile, viewGroup, false);
-
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        int resource = actionModelList.get(position).getImageResource();
-        int actionName = actionModelList.get(position).getActionName();
+        int resource = (int) actionModelList.get(position).get("icon");
+        int actionName = (int) actionModelList.get(position).get("key");
+        String actionValue = (String) actionModelList.get(position).get("value");
 
-        viewHolder.setData(resource, actionName);
+        viewHolder.setData(resource, actionName, actionValue);
     }
 
     @Override
@@ -44,19 +44,22 @@ public class ProfileActionAdapter extends RecyclerView.Adapter<ProfileActionAdap
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView actionImageView;
-        private TextView actionNameTextView;
+        private ImageView actionIV;
+        private TextView actionNameTV;
+        private TextView actionValueTV;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            actionImageView = itemView.findViewById(R.id.action_image);
-            actionNameTextView = itemView.findViewById(R.id.action_name);
+            actionIV = itemView.findViewById(R.id.action_image);
+            actionNameTV = itemView.findViewById(R.id.action_name);
+            actionValueTV = itemView.findViewById(R.id.action_value);
         }
 
-        private void setData(int resource, int actionName) {
-            actionImageView.setImageResource(resource);
-            actionNameTextView.setText(actionName);
+        private void setData(int resource, int actionName, String actionValue) {
+            actionIV.setImageResource(resource);
+            actionNameTV.setText(actionName);
+            actionValueTV.setText(actionValue);
         }
     }
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:divider="@color/light_grey"
     android:dividerHeight="@dimen/divider_thin"
     android:background="@drawable/list_selector"
     android:orientation="horizontal"
+    android:gravity="left"
     android:padding="@dimen/spacing_extra_small"
     android:layout_marginBottom="1dp">
 
@@ -20,28 +21,43 @@
 
         <ImageView
             android:id="@+id/action_image"
-            android:layout_marginTop="@dimen/margin_slightly_small"
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin_extra_small"
-            android:layout_width="@dimen/icon_size_normal"
-            android:layout_height="@dimen/icon_size_normal"
+            android:layout_width="@dimen/icon_semi_normal"
+            android:layout_height="@dimen/icon_semi_normal"
             android:src="@drawable/ic_default_male_user"
             android:background="@color/white"/>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/action_name"
-        android:layout_width="fill_parent"
+    <LinearLayout android:id="@+id/action_detail"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumbnail"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:text="Item Name"
-        android:gravity="left"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/spacing_moderate"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:textColor="#040404"
-        android:fontFamily="@font/noto_sans"
-        android:textSize="@dimen/text_size_normal_extra"/>
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:orientation="vertical"
+        android:gravity="left">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/action_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Value"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="#040404"
+            android:fontFamily="@font/noto_sans"
+            android:textSize="@dimen/text_size_normal_extra"/>
+
+        <TextView
+            android:id="@+id/action_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/action_name"
+            android:fontFamily="@font/noto_sans"
+            android:gravity="left"
+            android:text="Detail Key"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_normal" />
+    </LinearLayout>
+
+</LinearLayout>

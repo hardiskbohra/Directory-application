@@ -35,6 +35,7 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_extra_small">4dp</dimen>
     <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_semi_large">20dp</dimen>
     <dimen name="margin_slightly_large">32dp</dimen>
     <dimen name="margin_extra_large">64dp</dimen>
     <dimen name="margin_moderate">12dp</dimen>
@@ -47,6 +48,7 @@
     <!-- Icon Sizes -->
     <dimen name="icon_size_tiny">8dp</dimen>
     <dimen name="icon_size_small">12dp</dimen>
+    <dimen name="icon_semi_normal">20dp</dimen>
     <dimen name="icon_size_normal">24dp</dimen>
     <dimen name="icon_size_medium">28dp</dimen>
     <dimen name="icon_size_slight_large">32dp</dimen>

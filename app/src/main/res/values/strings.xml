@@ -32,6 +32,9 @@
     <string name="account_action_setting">Settings</string>
     <string name="account_action_logout">Logout</string>
 
+    <string name="profile_item_dob">Date of Birth</string>
+    <string name="profile_item_native">Native</string>
+    <string name="profile_item_city">City</string>
     <string name="profile_item_home">Home</string>
     <string name="profile_item_occupation">Occupation</string>
     <string name="profile_item_office">Office</string>

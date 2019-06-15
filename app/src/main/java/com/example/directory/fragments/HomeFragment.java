@@ -1,153 +1,110 @@
 package com.example.directory.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.directory.R;
-import com.example.directory.adapters.DirectoryListAdapter;
+import com.example.directory.adapters.ContactListAdapter;
+import com.example.directory.models.UserContactModel;
+import com.example.directory.utils.HelperUtils;
+import com.example.directory.utils.SampleData;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    public static final String KEY_ID = "id";
-    public static final String KEY_NAME = "name";
-    public static final String KEY_CITY = "city";
+    private static final int INITIAL_ICON_POSITION = 50;
+    private static final int ADD_ICON_POSITION = 120;
 
-    private ListView favoriteList;
-    private ListView allList;
+    private ListView contactList;
     private TextView resultCount;
+    private ImageView fvrtIcon, allIcon;
 
-    private DirectoryListAdapter adapter;
+    private ContactListAdapter contactListAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, parent, false);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        ArrayList<HashMap<String, String>> favorites = createFavoriteList();
-        ArrayList<HashMap<String, String>> all = createAllList();
+        List<UserContactModel> favoriteContacts = SampleData.getFavoriteContacts();
 
-        favoriteList = view.findViewById(R.id.favorite_list);
-        allList = view.findViewById(R.id.all_list);
+        List<UserContactModel> allContacts = new ArrayList<>();
+        allContacts.addAll(favoriteContacts);
+        allContacts.addAll(SampleData.getOtherContacts());
 
-        adapter = new DirectoryListAdapter(this, favorites);
-        favoriteList.setAdapter(adapter);
+        contactList = view.findViewById(R.id.contact_list);
 
-        adapter = new DirectoryListAdapter(this, all);
-        allList.setAdapter(adapter);
+        contactListAdapter = new ContactListAdapter(this, allContacts);
+        contactList.setAdapter(contactListAdapter);
+
+        setIconPositions(view, favoriteContacts.size());
 
         resultCount = view.findViewById(R.id.result_count);
-        resultCount.setText((favoriteList.getCount() + allList.getCount()) + " results found");
+        resultCount.setText(contactList.getCount() + " results found");
 
-        favoriteList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        HelperUtils.getListViewSize(contactList);
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
-        allList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             }
         });
+
+        contactList.setOnTouchListener(new View.OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event) {
+                return (event.getAction() == MotionEvent.ACTION_MOVE);
+            }
+        });
     }
 
-    private ArrayList<HashMap<String, String>> createFavoriteList() {
-        ArrayList<HashMap<String, String>> favorites = new ArrayList();
+    private void setIconPositions(View view, int size) {
+        fvrtIcon = view.findViewById(R.id.fvrt_icon);
+        allIcon = view.findViewById(R.id.all_icon);
 
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put(KEY_ID, "1");
-        map.put(KEY_NAME, "Mr. Tonny Stark");
-        map.put(KEY_CITY, "Bangalore (Native1)");
-        favorites.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "2");
-        map.put(KEY_NAME, "Mr. Captain America");
-        map.put(KEY_CITY, "Bangalore (Native2)");
-        favorites.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "3");
-        map.put(KEY_NAME, "Mr. Dr. Strange");
-        map.put(KEY_CITY, "Bangalore (Native3)");
-        favorites.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "4");
-        map.put(KEY_NAME, "Mr. Steve Smith");
-        map.put(KEY_CITY, "Bangalore (Native4)");
-        favorites.add(map);
-
-        return favorites;
+        switch (size) {
+            case 0:
+                fvrtIcon.setVisibility(View.GONE);
+                setPadding(allIcon, 0);
+                break;
+            case 1:
+                fvrtIcon.setVisibility(View.VISIBLE);
+                setPadding(allIcon, INITIAL_ICON_POSITION);
+                break;
+            case 2:
+                fvrtIcon.setVisibility(View.VISIBLE);
+                setPadding(allIcon, INITIAL_ICON_POSITION + ADD_ICON_POSITION);
+                break;
+            case 3:
+                fvrtIcon.setVisibility(View.VISIBLE);
+                setPadding(allIcon, INITIAL_ICON_POSITION + (ADD_ICON_POSITION * 2));
+                break;
+            case 4:
+                fvrtIcon.setVisibility(View.VISIBLE);
+                setPadding(allIcon, INITIAL_ICON_POSITION + (ADD_ICON_POSITION * 3));
+                break;
+        }
     }
 
-    private ArrayList<HashMap<String, String>> createAllList() {
-        ArrayList<HashMap<String, String>> all = new ArrayList();
-
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put(KEY_ID, "5");
-        map.put(KEY_NAME, "Mr. Tonny Stark");
-        map.put(KEY_CITY, "Bangalore (Native1)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "6");
-        map.put(KEY_NAME, "Mr. Captain America");
-        map.put(KEY_CITY, "Bangalore (Native2)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "7");
-        map.put(KEY_NAME, "Mr. Dr. Strange");
-        map.put(KEY_CITY, "Bangalore (Native3)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "8");
-        map.put(KEY_NAME, "Mr. Steve Smith");
-        map.put(KEY_CITY, "Bangalore (Native4)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "9");
-        map.put(KEY_NAME, "Mr. Tonny Stark");
-        map.put(KEY_CITY, "Bangalore (Native1)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "10");
-        map.put(KEY_NAME, "Mr. Captain America");
-        map.put(KEY_CITY, "Bangalore (Native2)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "11");
-        map.put(KEY_NAME, "Mr. Dr. Strange");
-        map.put(KEY_CITY, "Bangalore (Native3)");
-        all.add(map);
-
-        map = new HashMap<String, String>();
-        map.put(KEY_ID, "12");
-        map.put(KEY_NAME, "Mr. Steve Smith");
-        map.put(KEY_CITY, "Bangalore (Native4)");
-        all.add(map);
-
-        return all;
+    private void setPadding(ImageView iv, int top) {
+        iv.setPadding(iv.getPaddingLeft(), iv.getPaddingTop() + top, iv.getPaddingRight(), iv.getPaddingBottom());
     }
+
 }

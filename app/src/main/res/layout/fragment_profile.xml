@@ -6,51 +6,30 @@
     android:layout_marginBottom="@dimen/margin_from_app_bar"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="vertical"
         android:gravity="center"
         android:paddingLeft="@dimen/spacing_normal"
         android:paddingRight="@dimen/spacing_normal"
         android:paddingTop="@dimen/spacing_moderate"
         android:paddingBottom="@dimen/spacing_moderate">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/user_image"
-            android:layout_width="@dimen/size_extra_large"
-            android:layout_height="@dimen/size_extra_large"
-            android:src="@drawable/hardik"
-            app:civ_border_width="@dimen/divider_thin"
-            app:civ_border_color="#1FAAAAAA"/>
+        <include layout="@layout/account_header"></include>
 
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:text="Hardik Bohra"
-            android:gravity="center"
-            android:textColor="@color/red"
-            android:shadowColor="@color/light_grey"
-            android:shadowDx="0"
-            android:shadowDy="3"
-            android:shadowRadius="5"
-            android:fontFamily="@font/noto_sans_semi_bold"
-            android:textSize="@dimen/text_size_super_large"/>
+            android:layout_marginBottom="@dimen/margin_slightly_small"
+            android:drawableStart="@drawable/ic_edit"
+            android:layout_alignParentEnd="true"
+            android:text="Edit"
+            android:paddingTop="-2dp"
+            android:drawablePadding="2dp"
+            android:background="@null"/>
 
-        <TextView
-            android:id="@+id/user_parent_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="s/o Uttamkumar Bohra"
-            android:gravity="center"
-            android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/noto_sans"
-            android:textSize="@dimen/text_size_normal_semi"/>
-
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_small"
-                android:text="14/06/94"
+                android:text="DD/MM/YY"
                 android:gravity="center"
                 android:fontFamily="@font/noto_sans_semi_bold"
                 android:textColor="@color/black"
@@ -86,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date of Birth"
+                android:text="@string/profile_item_dob"
                 android:fontFamily="@font/noto_sans"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_size_small"
@@ -107,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_small"
-                android:text="Rajasthan"
+                android:text="native"
                 android:gravity="center"
                 android:fontFamily="@font/noto_sans_semi_bold"
                 android:textColor="@color/black"
@@ -117,7 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Native"
+                android:text="@string/profile_item_native"
                 android:fontFamily="@font/noto_sans"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_size_small"
@@ -138,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_small"
-                android:text="Bangalore"
+                android:text="city"
                 android:gravity="center"
                 android:fontFamily="@font/noto_sans_semi_bold"
                 android:textColor="@color/black"
@@ -148,7 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="City"
+                android:text="@string/profile_item_city"
                 android:fontFamily="@font/noto_sans"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/text_size_small"
@@ -158,13 +137,11 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/action_list"
-        android:layout_marginTop="@dimen/divider_thin"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/light_grey"
-        android:dividerHeight="@dimen/divider_thin"
-        android:listSelector="@drawable/list_selector" />
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
