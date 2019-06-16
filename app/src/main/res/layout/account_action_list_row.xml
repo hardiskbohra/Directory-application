@@ -23,7 +23,6 @@
             android:id="@+id/action_image"
             android:layout_width="@dimen/icon_size_normal"
             android:layout_height="@dimen/icon_size_normal"
-            android:layout_marginTop="@dimen/margin_slightly_small"
             android:layout_marginBottom="@dimen/margin_extra_small"
             android:background="@color/white"
             android:src="@drawable/ic_default_male_user" />
@@ -36,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/margin_small"
         android:layout_toRightOf="@+id/thumbnail"
         android:fontFamily="@font/noto_sans"
         android:gravity="left"
@@ -45,21 +44,5 @@
         android:textSize="@dimen/text_size_normal_extra"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/action_description"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/action_name"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="2dp"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:fontFamily="@font/noto_sans"
-        android:gravity="left"
-        android:text="Item Name"
-        android:textColor="@color/grey"
-        android:textSize="@dimen/text_size_normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/action_name" />
 
 </android.support.constraint.ConstraintLayout>

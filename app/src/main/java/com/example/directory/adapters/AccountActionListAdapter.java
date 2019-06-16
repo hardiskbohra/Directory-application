@@ -1,7 +1,7 @@
 package com.example.directory.adapters;
 
-import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,27 +11,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.directory.R;
-import com.example.directory.fragments.AccountFragment;
+import com.example.directory.constants.Constants;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AccountActionListAdapter extends BaseAdapter {
 
-
-    private Activity activity;
     private Fragment fragment;
-    private ArrayList<HashMap<String, Object>> data;
-    private static LayoutInflater inflater=null;
+    private List<Map<String, Object>> actions;
+    private static LayoutInflater inflater = null;
 
-    public AccountActionListAdapter(Fragment f, ArrayList<HashMap<String, Object>> d) {
-        fragment = f;
-        data=d;
-        inflater = (LayoutInflater)fragment.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public AccountActionListAdapter(Fragment f, List<Map<String, Object>> actions) {
+        this.fragment = f;
+        this.actions = actions;
+        this.inflater = (LayoutInflater) fragment.getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public int getCount() {
-        return data.size();
+        return actions.size();
     }
 
     public Object getItem(int position) {
@@ -41,25 +39,31 @@ public class AccountActionListAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-    
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View vi=convertView;
-        if(convertView==null)
-            vi = inflater.inflate(R.layout.account_action_list_row, null);
 
-        TextView name = vi.findViewById(R.id.action_name);
-        ImageView image = vi.findViewById(R.id.action_image);
+    public View getView(int position, View view, ViewGroup parent) {
+        if (view == null)
+            view = inflater.inflate(R.layout.account_action_list_row, null);
 
-        HashMap<String, Object> action;
-        action = data.get(position);
+        ViewHolder viewHolder = new ViewHolder(view);
+        Map<String, Object> action = actions.get(position);
+        viewHolder.setData((int) action.get(Constants.ICON), (int) action.get(Constants.KEY));
 
-        if (action.get(AccountFragment.KEY_ACTION_NAME) instanceof String) {
-            name.setText((String) action.get(AccountFragment.KEY_ACTION_NAME));
-        } else {
-            name.setText((int) action.get(AccountFragment.KEY_ACTION_NAME));
+        return view;
+    }
+
+    class ViewHolder {
+
+        private ImageView actionIcon;
+        private TextView actionName;
+
+        public ViewHolder(@NonNull View view) {
+            actionName = view.findViewById(R.id.action_name);
+            actionIcon = view.findViewById(R.id.action_image);
         }
-        image.setImageResource((int) action.get(AccountFragment.KEY_ACTION_IMAGE));
 
-        return vi;
+        private void setData(int actionImage, int actionName) {
+            this.actionIcon.setImageResource(actionImage);
+            this.actionName.setText(actionName);
+        }
     }
 }

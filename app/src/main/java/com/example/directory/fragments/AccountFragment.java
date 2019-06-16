@@ -8,28 +8,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.directory.R;
 import com.example.directory.adapters.AccountActionListAdapter;
 import com.example.directory.fragments.dialog.LogoutConfirmationDialog;
+import com.example.directory.models.UserProfileModel;
+import com.example.directory.utils.SampleData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.example.directory.constants.Constants.ICON;
+import static com.example.directory.constants.Constants.KEY;
 
 public class AccountFragment extends Fragment {
 
-    public static final String KEY_ACTION_ID = "id";
-    public static final String KEY_ACTION_NAME = "action_name";
-    public static final String KEY_ACTION_IMAGE = "action_image";
 
-    private LinearLayout ll = null;
     private ListView actionList;
     private AccountActionListAdapter adapter;
 
     private Fragment profileFragment;
-    private Fragment profileRecyclerFragment;
     private DialogFragment logoutFragment;
     private FragmentManager fragmentManager;
 
@@ -41,9 +44,12 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        ArrayList<HashMap<String, Object>> actions = createActionList();
+        List<Map<String, Object>> actions = createActionList();
+        UserProfileModel userProfile = SampleData.createDataList();
 
-        ll = view.findViewById(R.id.account_fragment_ll);
+        // set user Profile
+        setViewComponent(view, userProfile);
+
         actionList = view.findViewById(R.id.action_list);
 
         fragmentManager = getFragmentManager();
@@ -52,7 +58,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                switch ((int)id) {
+                switch ((int) id) {
                     case 0:
                         profileFragment = new ProfileFragment();
                         fragmentManager.beginTransaction().replace(R.id.container, profileFragment).commit();
@@ -73,33 +79,37 @@ public class AccountFragment extends Fragment {
         actionList.setAdapter(adapter);
     }
 
-    private ArrayList<HashMap<String, Object>> createActionList() {
-        ArrayList<HashMap<String, Object>> actions = new ArrayList<>();
+    private void setViewComponent(View view, UserProfileModel userProfile) {
+        ImageView userImage = view.findViewById(R.id.user_image);
+        userImage.setImageResource(userProfile.getImageResource());
 
-        HashMap<String, Object> map = new HashMap<>();
-        map.put(KEY_ACTION_ID, 1);
-        map.put(KEY_ACTION_NAME, R.string.account_action_profile);
-        map.put(KEY_ACTION_IMAGE, R.drawable.ic_profile);
-        actions.add(map);
+        TextView userName = view.findViewById(R.id.user_name);
+        userName.setText(userProfile.getName());
+    }
 
-        map = new HashMap<>();
-        map.put(KEY_ACTION_ID, 2);
-        map.put(KEY_ACTION_NAME, R.string.account_action_family_tree);
-        map.put(KEY_ACTION_IMAGE, R.drawable.ic_family);
-        actions.add(map);
+    private List<Map<String, Object>> createActionList() {
+        List<Map<String, Object>> mapList = new ArrayList<>();
 
-        map = new HashMap<>();
-        map.put(KEY_ACTION_ID, 3);
-        map.put(KEY_ACTION_NAME, R.string.account_action_setting);
-        map.put(KEY_ACTION_IMAGE, R.drawable.ic_setting);
-        actions.add(map);
+        Map<String, Object> map = new HashMap<>();
+        map.put(ICON, R.drawable.ic_profile);
+        map.put(KEY, R.string.account_action_profile);
+        mapList.add(map);
 
         map = new HashMap<>();
-        map.put(KEY_ACTION_ID, 4);
-        map.put(KEY_ACTION_NAME, R.string.account_action_logout);
-        map.put(KEY_ACTION_IMAGE, R.drawable.ic_logout);
-        actions.add(map);
+        map.put(ICON, R.drawable.ic_family_tree);
+        map.put(KEY, R.string.account_action_family_tree);
+        mapList.add(map);
 
-        return actions;
+        map = new HashMap<>();
+        map.put(ICON, R.drawable.ic_settings);
+        map.put(KEY, R.string.account_action_setting);
+        mapList.add(map);
+
+        map = new HashMap<>();
+        map.put(ICON, R.drawable.ic_logout);
+        map.put(KEY, R.string.account_action_logout);
+        mapList.add(map);
+
+        return mapList;
     }
 }

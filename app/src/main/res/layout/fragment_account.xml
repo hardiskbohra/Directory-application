@@ -17,37 +17,7 @@
         android:paddingTop="@dimen/spacing_moderate"
         android:paddingBottom="@dimen/spacing_moderate">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/user_image"
-            android:layout_width="@dimen/size_extra_large"
-            android:layout_height="@dimen/size_extra_large"
-            android:src="@drawable/hardik"
-            app:civ_border_width="@dimen/divider_thin"
-            app:civ_border_color="#1FAAAAAA"/>
-
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hardik Bohra"
-            android:gravity="center"
-            android:textColor="@color/red"
-            android:shadowColor="@color/light_grey"
-            android:shadowDx="0"
-            android:shadowDy="3"
-            android:shadowRadius="5"
-            android:fontFamily="@font/noto_sans_semi_bold"
-            android:textSize="@dimen/text_size_super_large"/>
-
-        <TextView
-            android:id="@+id/user_parent_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/noto_sans"
-            android:textSize="@dimen/text_size_normal_semi"/>
+        <include layout="@layout/account_header" />
 
     </LinearLayout>
 

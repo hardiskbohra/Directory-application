@@ -13,4 +13,11 @@ public class Constants {
     public static final int GONE = 0x00000008;
 
     public static final String NEW_LINE = "\n";
+    public static final String COMMA = ",";
+    public static final String HYPHEN_WITH_SPACE = " - ";
+
+    public static final String ICON = "icon";
+    public static final String KEY = "key";
+    public static final String VALUE = "value";
+
 }

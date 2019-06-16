@@ -20,7 +20,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.example.directory.constants.Constants.COMMA;
+import static com.example.directory.constants.Constants.HYPHEN_WITH_SPACE;
+import static com.example.directory.constants.Constants.ICON;
+import static com.example.directory.constants.Constants.KEY;
 import static com.example.directory.constants.Constants.NEW_LINE;
+import static com.example.directory.constants.Constants.VALUE;
 
 public class ProfileFragment extends Fragment {
 
@@ -39,16 +44,22 @@ public class ProfileFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ProfileFragment.this.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
         recyclerView.setLayoutManager(linearLayoutManager);
 
         UserProfileModel userProfile = SampleData.createDataList();
 
-        List<Map<String, Object>> userDetails = createUserDetailsMap(userProfile);
+        // set user Profile
+        setViewComponent(view, userProfile);
 
+        // set user details
+        List<Map<String, Object>> userDetails = createUserDetailsMap(userProfile);
         ProfileActionAdapter adapter = new ProfileActionAdapter(userDetails);
         recyclerView.setAdapter(adapter);
 
+        adapter.notifyDataSetChanged();
+    }
+
+    private void setViewComponent(View view, UserProfileModel userProfile) {
         ImageView userImage = view.findViewById(R.id.user_image);
         userImage.setImageResource(userProfile.getImageResource());
 
@@ -56,7 +67,7 @@ public class ProfileFragment extends Fragment {
         userName.setText(userProfile.getName());
 
         TextView fatherName = view.findViewById(R.id.user_parent_name);
-        fatherName.setText(userProfile.getFatherName());
+        fatherName.setText("S/o " + userProfile.getFatherName());
 
         TextView dateOfBirth = view.findViewById(R.id.user_dob);
         dateOfBirth.setText(userProfile.getDateOfBirth());
@@ -66,8 +77,6 @@ public class ProfileFragment extends Fragment {
 
         TextView city = view.findViewById(R.id.user_city);
         city.setText(userProfile.getCity());
-
-        adapter.notifyDataSetChanged();
     }
 
     private List<Map<String, Object>> createUserDetailsMap(UserProfileModel userProfile) {
@@ -77,44 +86,44 @@ public class ProfileFragment extends Fragment {
         builder.append(userProfile.getHomeAddressLine1());
         builder.append(NEW_LINE + userProfile.getHomeAddressLine2());
         builder.append(NEW_LINE + userProfile.getHomeAddressLine3());
-        builder.append(NEW_LINE + userProfile.getHomeAddressCity() + ",");
-        builder.append(userProfile.getHomeAddressState() + " - " + userProfile.getHomeAddressPincode());
+        builder.append(NEW_LINE + userProfile.getHomeAddressCity() + COMMA);
+        builder.append(userProfile.getHomeAddressState() + HYPHEN_WITH_SPACE + userProfile.getHomeAddressPincode());
 
         Map<String, Object> map = new HashMap<>();
-        map.put("icon", R.drawable.ic_home_green);
-        map.put("key", R.string.profile_item_home);
-        map.put("value", builder.toString());
+        map.put(ICON, R.drawable.ic_home_green);
+        map.put(KEY, R.string.profile_item_home);
+        map.put(VALUE, builder.toString());
         mapList.add(map);
 
         map = new HashMap<>();
-        map.put("icon", R.drawable.ic_occupation);
-        map.put("key", R.string.profile_item_occupation);
-        map.put("value", userProfile.getOccupation());
+        map.put(ICON, R.drawable.ic_occupation);
+        map.put(KEY, R.string.profile_item_occupation);
+        map.put(VALUE, userProfile.getOccupation());
         mapList.add(map);
 
         builder = new StringBuilder();
         builder.append(userProfile.getOfficeAddressLine1());
         builder.append(NEW_LINE + userProfile.getOfficeAddressLine2());
         builder.append(NEW_LINE + userProfile.getOfficeAddressLine3());
-        builder.append(NEW_LINE + userProfile.getOfficeAddressCity() + ",");
-        builder.append(userProfile.getOfficeAddressState() + " - " + userProfile.getOfficeAddressPincode());
+        builder.append(NEW_LINE + userProfile.getOfficeAddressCity() + COMMA);
+        builder.append(userProfile.getOfficeAddressState() + HYPHEN_WITH_SPACE + userProfile.getOfficeAddressPincode());
 
         map = new HashMap<>();
-        map.put("icon", R.drawable.ic_office);
-        map.put("key", R.string.profile_item_office);
-        map.put("value", builder.toString());
+        map.put(ICON, R.drawable.ic_office);
+        map.put(KEY, R.string.profile_item_office);
+        map.put(VALUE, builder.toString());
         mapList.add(map);
 
         map = new HashMap<>();
-        map.put("icon", R.drawable.ic_contact);
-        map.put("key", R.string.profile_item_contact_number);
-        map.put("value", userProfile.getContactNumber() + NEW_LINE + userProfile.getContactNumber2());
+        map.put(ICON, R.drawable.ic_contact);
+        map.put(KEY, R.string.profile_item_contact_number);
+        map.put(VALUE, userProfile.getContactNumber() + NEW_LINE + userProfile.getContactNumber2());
         mapList.add(map);
 
         map = new HashMap<>();
-        map.put("icon", R.drawable.ic_email);
-        map.put("key", R.string.profile_item_email);
-        map.put("value", userProfile.getEmail());
+        map.put(ICON, R.drawable.ic_email);
+        map.put(KEY, R.string.profile_item_email);
+        map.put(VALUE, userProfile.getEmail());
         mapList.add(map);
 
         return mapList;
