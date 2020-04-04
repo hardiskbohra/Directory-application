@@ -2,8 +2,8 @@ package com.example.directory.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.directory.R;
 import com.example.directory.constants.Constants;
 import com.example.directory.utils.ValidationUtils;
@@ -84,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checkLoginDetails()) {
-                    sendMessage();
+                    login();
                 }
             }
         });
@@ -95,6 +100,33 @@ public class LoginActivity extends AppCompatActivity {
                 ViewUtils.showToastShort(LoginActivity.this, "Request For Login Credentials");
             }
         });
+    }
+
+    public void login(){
+        StringRequest request= new StringRequest(Request.Method.GET, "https://preprod-az.gonuclei.com/api/flight-forward/status",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        sendMessage();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Intent homescreenIntent = new Intent(getApplicationContext(),ActivityforHomeScreen.class);
+//                startActivity(homescreenIntent);
+            }
+        }){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String,String> params= new HashMap<>();
+//                params.put("username",usernameEditText.getText().toString());
+//                params.put("password",passwordEditText.getText().toString());
+//                return params;
+//            }
+        };
+
+        Volley.newRequestQueue(this).add(request);
+
     }
 
     TextWatcher usernameTextWatcher = new TextWatcher() {
